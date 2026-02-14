@@ -1,0 +1,218 @@
+/**
+ * AI Formatter - Admin CSS
+ */
+
+/* ---- Layout ---- */
+.aif-wrap {
+	max-width: 1400px;
+}
+
+.aif-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 24px;
+	margin-top: 16px;
+}
+
+@media (max-width: 960px) {
+	.aif-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.aif-panel {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 16px 20px;
+}
+
+.aif-row {
+	margin: 12px 0;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.aif-row label {
+	min-width: 90px;
+	font-weight: 600;
+}
+
+.aif-row select {
+	flex: 1;
+	max-width: 360px;
+}
+
+.aif-actions {
+	display: flex;
+	gap: 8px;
+	margin: 16px 0 8px;
+}
+
+/* ---- Textareas ---- */
+#aif-input,
+#aif-output {
+	width: 100%;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	font-size: 13px;
+	line-height: 1.5;
+	resize: vertical;
+}
+
+#aif-input {
+	border: 2px dashed #c3c4c7;
+	transition: border-color 0.2s;
+}
+
+#aif-input:focus {
+	border-color: #2271b1;
+	border-style: solid;
+}
+
+#aif-input.aif-dragover {
+	border-color: #2271b1;
+	background: #f0f6fc;
+}
+
+/* ---- Preview ---- */
+.aif-preview {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 20px 24px;
+	background: #fff;
+	min-height: 120px;
+	overflow-y: auto;
+	max-height: 500px;
+}
+
+.aif-preview:empty::before {
+	content: "Le resultat s'affichera ici.";
+	color: #999;
+	font-style: italic;
+}
+
+/* ---- CSS Presets ---- */
+
+/* Clean */
+.aif-css-clean {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	font-size: 15px;
+	line-height: 1.6;
+	color: #1d2327;
+}
+
+/* SansDoute */
+.aif-css-sansdoute {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 16px;
+	line-height: 1.75;
+	color: #222;
+	letter-spacing: 0.01em;
+}
+
+.aif-css-sansdoute h2,
+.aif-css-sansdoute h3,
+.aif-css-sansdoute h4 {
+	font-family: system-ui, -apple-system, sans-serif;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.aif-css-sansdoute blockquote,
+.aif-css-sansdoute ul {
+	border-left: 3px solid #333;
+	padding-left: 1em;
+}
+
+/* Doc technique */
+.aif-css-tech {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+	font-size: 13.5px;
+	line-height: 1.65;
+	color: #1a1a2e;
+}
+
+.aif-css-tech h2,
+.aif-css-tech h3,
+.aif-css-tech h4 {
+	border-bottom: 1px solid #e2e4e7;
+	padding-bottom: 0.3em;
+	margin-bottom: 0.6em;
+}
+
+.aif-css-tech code {
+	background: #f0f0f1;
+	padding: 0.15em 0.4em;
+	border-radius: 3px;
+	font-size: 0.92em;
+}
+
+/* Apple clean */
+.aif-css-apple {
+	font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 17px;
+	line-height: 1.52941;
+	color: #1d1d1f;
+	letter-spacing: -0.01em;
+	-webkit-font-smoothing: antialiased;
+}
+
+.aif-css-apple h2,
+.aif-css-apple h3,
+.aif-css-apple h4 {
+	font-weight: 600;
+	letter-spacing: -0.025em;
+}
+
+.aif-css-apple p {
+	margin-bottom: 1.2em;
+}
+
+.aif-css-apple ul {
+	padding-left: 1.3em;
+}
+
+.aif-css-apple li {
+	margin-bottom: 0.4em;
+}
+
+/* ---- Shared preview styles ---- */
+.aif-preview h2,
+.aif-preview h3,
+.aif-preview h4 {
+	margin-top: 1.2em;
+	margin-bottom: 0.4em;
+}
+
+.aif-preview h2:first-child,
+.aif-preview h3:first-child,
+.aif-preview h4:first-child {
+	margin-top: 0;
+}
+
+.aif-preview p {
+	margin: 0 0 0.8em;
+}
+
+.aif-preview ul {
+	padding-left: 1.2em;
+	margin: 0 0 0.8em;
+}
+
+.aif-preview li {
+	margin-bottom: 0.25em;
+}
+
+.aif-preview strong {
+	font-weight: 700;
+}
+
+.aif-preview a {
+	color: #2271b1;
+	text-decoration: underline;
+}
+
+.aif-preview a:hover {
+	color: #135e96;
+}
