@@ -3,6 +3,8 @@
  * Page de reglages : Reglages -> AI Formatter.
  *
  * Stocke : provider (openai / anthropic), cle API, modele.
+ *
+ * @author Peopleofverso
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
