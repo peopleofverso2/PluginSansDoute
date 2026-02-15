@@ -15,10 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Convertit un texte markdownish en HTML semantique.
  *
- * @param string $text Le texte a convertir.
+ * @param string $text   Le texte a convertir.
+ * @param bool   $strict Mode strict : tout en paragraphes, pas de listes.
  * @return string HTML propre.
  */
-function aif_markdownish_to_html( string $text ): string {
+function aif_markdownish_to_html( string $text, bool $strict = false ): string {
 	$lines       = explode( "\n", $text );
 	$html        = '';
 	$in_ul       = false;
@@ -72,6 +73,12 @@ function aif_markdownish_to_html( string $text ): string {
 
 		/* Liste a puces : "- texte" ou "* texte" */
 		if ( preg_match( '/^[-\*]\s+(.*)$/u', $l, $m ) ) {
+			if ( $strict ) {
+				/* Mode strict : convertit en paragraphe */
+				$html .= aif_close_list( $in_ul, $in_ol );
+				$html .= '<p>' . aif_inline_format( $m[1] ) . "</p>\n";
+				continue;
+			}
 			if ( $in_ol ) {
 				$html .= "</ol>\n";
 				$in_ol = false;
@@ -86,6 +93,12 @@ function aif_markdownish_to_html( string $text ): string {
 
 		/* Liste numerotee : "1. texte", "2) texte" */
 		if ( preg_match( '/^\d+[\.\)]\s+(.*)$/u', $l, $m ) ) {
+			if ( $strict ) {
+				/* Mode strict : convertit en paragraphe */
+				$html .= aif_close_list( $in_ul, $in_ol );
+				$html .= '<p>' . aif_inline_format( $m[1] ) . "</p>\n";
+				continue;
+			}
 			if ( $in_ul ) {
 				$html .= "</ul>\n";
 				$in_ul = false;

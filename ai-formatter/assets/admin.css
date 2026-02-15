@@ -1,5 +1,5 @@
 /**
- * AI Formatter - Admin CSS
+ * AI Formatter - Admin CSS v1.1.0
  * @author Peopleofverso
  */
 
@@ -8,6 +8,12 @@
 /* ================================================================ */
 .aif-wrap {
 	max-width: 1440px;
+}
+
+.aif-version {
+	font-size: 12px;
+	color: #787c82;
+	font-weight: 400;
 }
 
 .aif-grid {
@@ -54,6 +60,7 @@
 	gap: 8px;
 	margin: 16px 0 8px;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 .aif-stats {
@@ -61,6 +68,74 @@
 	font-size: 12px;
 	color: #787c82;
 	font-variant-numeric: tabular-nums;
+}
+
+.aif-btn-small {
+	padding: 2px 8px !important;
+	min-height: 28px !important;
+	font-size: 12px !important;
+}
+
+/* ================================================================ */
+/*  Import DOCX                                                     */
+/* ================================================================ */
+.aif-import-row {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.aif-import-btn {
+	cursor: pointer;
+}
+
+.aif-import-status {
+	font-size: 12px;
+	color: #787c82;
+	font-style: italic;
+}
+
+/* ================================================================ */
+/*  Tone detector                                                   */
+/* ================================================================ */
+.aif-tone-bar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 8px 0;
+	padding: 6px 12px;
+	background: #f8f9fa;
+	border-radius: 4px;
+	font-size: 13px;
+}
+
+.aif-tone-label {
+	color: #787c82;
+	font-size: 12px;
+}
+
+.aif-tone-badge {
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 12px;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: capitalize;
+	color: #fff;
+	background: #787c82;
+}
+
+.aif-tone-formel         { background: #2271b1; }
+.aif-tone-informel       { background: #d63638; }
+.aif-tone-journalistique { background: #dba617; color: #1d2327; }
+.aif-tone-litteraire     { background: #8c5cb3; }
+.aif-tone-technique      { background: #3c7a3c; }
+.aif-tone-neutre         { background: #787c82; }
+
+.aif-tone-confidence {
+	font-size: 11px;
+	color: #787c82;
 }
 
 /* ================================================================ */
@@ -176,6 +251,198 @@
 
 .aif-toast-error {
 	background: #d63638;
+}
+
+/* ================================================================ */
+/*  History                                                         */
+/* ================================================================ */
+.aif-history-section {
+	margin-top: 20px;
+}
+
+.aif-history-section h3 {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.aif-history-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 13px;
+	margin-top: 8px;
+}
+
+.aif-history-table th,
+.aif-history-table td {
+	padding: 6px 8px;
+	text-align: left;
+	border-bottom: 1px solid #e2e4e7;
+}
+
+.aif-history-table th {
+	font-weight: 600;
+	background: #f8f9fa;
+	font-size: 12px;
+	color: #787c82;
+	text-transform: uppercase;
+}
+
+.aif-history-snippet {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	font-size: 11px;
+	color: #787c82;
+	max-width: 250px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.aif-history-empty {
+	color: #787c82;
+	font-style: italic;
+	font-size: 13px;
+}
+
+/* ================================================================ */
+/*  Diff view                                                       */
+/* ================================================================ */
+.aif-diff-view {
+	margin-top: 16px;
+	padding: 16px;
+	background: #f8f9fa;
+	border: 1px solid #e2e4e7;
+	border-radius: 6px;
+}
+
+.aif-diff-view h4 {
+	margin: 0 0 12px;
+	font-size: 14px;
+}
+
+.aif-diff-columns {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+.aif-diff-col h5 {
+	margin: 0 0 6px;
+	font-size: 12px;
+	color: #787c82;
+	text-transform: uppercase;
+}
+
+.aif-diff-col pre {
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 10px;
+	font-size: 11px;
+	line-height: 1.5;
+	max-height: 200px;
+	overflow-y: auto;
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.aif-diff-inline-pre {
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 10px;
+	font-size: 11px;
+	line-height: 1.5;
+	max-height: 200px;
+	overflow-y: auto;
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.aif-diff-inline-pre del {
+	background: #fce8e8;
+	color: #d63638;
+	text-decoration: line-through;
+}
+
+.aif-diff-inline-pre ins {
+	background: #e6f6e6;
+	color: #00a32a;
+	text-decoration: none;
+}
+
+/* ================================================================ */
+/*  Modal (Preset editor)                                           */
+/* ================================================================ */
+.aif-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 100001;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.aif-modal-content {
+	background: #fff;
+	border-radius: 8px;
+	width: 90%;
+	max-width: 680px;
+	max-height: 85vh;
+	overflow-y: auto;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.aif-modal-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 16px 24px;
+	border-bottom: 1px solid #e2e4e7;
+}
+
+.aif-modal-header h2 {
+	margin: 0;
+	font-size: 16px;
+}
+
+.aif-modal-close {
+	font-size: 20px !important;
+	line-height: 1 !important;
+	padding: 4px 8px !important;
+	min-height: auto !important;
+}
+
+.aif-modal-body {
+	padding: 20px 24px;
+}
+
+.aif-modal-body label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 6px;
+	color: #1d2327;
+}
+
+.aif-modal-body textarea.code {
+	width: 100%;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	font-size: 12px;
+	line-height: 1.5;
+	padding: 10px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	resize: vertical;
+}
+
+.aif-modal-footer {
+	display: flex;
+	gap: 8px;
+	justify-content: flex-end;
+	padding: 16px 24px;
+	border-top: 1px solid #e2e4e7;
 }
 
 /* ================================================================ */

@@ -4,6 +4,15 @@
 
 Plugin WordPress d'edition intelligente pour [SansDoute](https://github.com/peopleofverso2/PluginSansDoute). Collez un texte, il le nettoie, corrige la typographie francaise, et le met en forme. Respecte la voix des auteurs -- ne reecrit jamais, corrige uniquement.
 
+## Nouveautes v1.1.0
+
+- **Import DOCX** : importez des fichiers `.docx` via mammoth.js (bouton ou drag & drop)
+- **Detection de ton** : analyse heuristique automatique (formel, informel, journalistique, litteraire, technique)
+- **Historique de versions** : timeline des formatages avec diff inline (avant/apres)
+- **Presets CSS personnalisables** : editeur modal avec previsualisation live, sauvegarde en base
+- **Mode strict** : tout en paragraphes, pas de listes (checkbox)
+- **Export PDF / Markdown** : telechargez le resultat en `.md` ou imprimez en PDF
+
 ## Fonctionnalites
 
 ### Pipeline de traitement (3 couches)
@@ -62,9 +71,16 @@ Prompt de traduction optimise : traduction naturelle (pas de mot-a-mot), respect
 
 - **Page admin** : Outils -> AI Formatter (formatage + traduction)
 - **Panneau Gutenberg** : sidebar avec formatage + traduction integres
+- **Import DOCX** : bouton + drag & drop via mammoth.js (conversion cote client)
+- **Detection du ton** : badge automatique (formel / informel / journalistique / litteraire / technique)
 - **Preview live** avec choix de preset CSS
-- **Drag & drop** de fichiers .txt / .md
+- **Drag & drop** de fichiers .txt / .md / .docx
+- **Mode strict** : convertit toutes les listes en paragraphes
 - **Copier HTML** en un clic
+- **Export Markdown** : telecharge un fichier `.md` depuis le HTML formate
+- **Export PDF** : ouvre la fenetre d'impression avec les styles appliques
+- **Historique** : conserve les 20 derniers formatages avec diff inline
+- **Presets CSS custom** : editeur modal avec previsualisation live et sauvegarde WP
 - **Statistiques** : compteur de mots et caracteres en temps reel
 - **Notifications toast** (pas d'alertes intrusives)
 - **Raccourci** : Ctrl+Entree pour lancer le formatage
@@ -136,15 +152,16 @@ ai-formatter/
   includes/
     clean.php                    # Layer A : nettoyage des tics LLM
     typography.php               # Layer B : typographie francaise
-    html.php                     # Conversion pseudo-markdown -> HTML
+    html.php                     # Conversion pseudo-markdown -> HTML (+ mode strict)
     ai-provider.php              # Appels IA (OpenAI + Anthropic)
+    tone-detector.php            # Detection heuristique du ton du texte
     translation.php              # Systeme de traduction (21 langues EU)
     settings.php                 # Page de reglages (cle API, provider)
     gutenberg.php                # Integration sidebar Gutenberg
     frontend.php                 # CSS presets sur le front (articles publies)
   assets/
-    admin.css                    # Styles page admin + presets preview
-    admin.js                     # JS page admin (REST, preview, traduction)
+    admin.css                    # Styles page admin + presets + modal + diff
+    admin.js                     # JS complet (DOCX, ton, historique, export, etc.)
     gutenberg.js                 # JS sidebar Gutenberg
     frontend.css                 # Presets CSS pour le front-end
 ```
@@ -162,7 +179,8 @@ ai-formatter/
   "text": "Le texte brut a formater",
   "mode": "clean_only | typo_only | ai_proofread",
   "style": "neutre | journalistique | gonzo | corporate",
-  "css": "clean | sansdoute | tech | apple"
+  "css": "clean | sansdoute | tech | apple",
+  "strict": false
 }
 ```
 
@@ -201,7 +219,38 @@ ai-formatter/
 }
 ```
 
-**Authentification** : nonce WordPress + `current_user_can('edit_posts')` sur les deux endpoints.
+#### Detecter le ton
+
+**Endpoint** : `POST /wp-json/ai-formatter/v1/detect-tone`
+
+```json
+{
+  "text": "Le texte brut a analyser"
+}
+```
+
+**Reponse** :
+
+```json
+{
+  "tone": "journalistique",
+  "confidence": 72,
+  "details": { "avg_sentence_length": 16.3, "word_count": 245, "scores": {} }
+}
+```
+
+#### Sauvegarder un preset CSS
+
+**Endpoint** : `POST /wp-json/ai-formatter/v1/preset`
+
+```json
+{
+  "name": "Mon preset",
+  "css": ".aif-css-monpreset { font-family: Georgia, serif; }"
+}
+```
+
+**Authentification** : nonce WordPress + `current_user_can('edit_posts')` (format, translate, detect-tone) / `manage_options` (preset).
 
 ## Securite
 
@@ -222,13 +271,13 @@ ai-formatter/
 
 ## Feuille de route
 
-- [ ] Import DOCX (via mammoth.js cote client)
-- [ ] Detection automatique du ton du texte
-- [ ] Historique de versions (diff avant/apres)
-- [ ] Presets CSS personnalisables (editeur)
-- [ ] Mode "strict" (tout en paragraphes, pas de listes)
-- [ ] Export PDF / Markdown
-- [x] ~~Support multilingue~~ Traduction vers 21 langues europeennes
+- [x] ~~Import DOCX~~ via mammoth.js cote client (v1.1.0)
+- [x] ~~Detection automatique du ton~~ heuristique 5 tons (v1.1.0)
+- [x] ~~Historique de versions~~ diff inline avant/apres (v1.1.0)
+- [x] ~~Presets CSS personnalisables~~ editeur modal + sauvegarde WP (v1.1.0)
+- [x] ~~Mode strict~~ tout en paragraphes (v1.1.0)
+- [x] ~~Export PDF / Markdown~~ (v1.1.0)
+- [x] ~~Support multilingue~~ Traduction vers 21 langues europeennes (v1.0.0)
 
 ## Licence
 
@@ -236,4 +285,4 @@ MIT -- Voir [LICENSE](LICENSE)
 
 ---
 
-*AI Formatter v1.0.0 -- par [Peopleofverso](https://github.com/peopleofverso2)*
+*AI Formatter v1.1.0 -- par [Peopleofverso](https://github.com/peopleofverso2)*
