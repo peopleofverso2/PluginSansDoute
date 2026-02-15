@@ -1,0 +1,376 @@
+/**
+ * AI Formatter - Admin CSS
+ * @author Peopleofverso
+ */
+
+/* ================================================================ */
+/*  Layout                                                          */
+/* ================================================================ */
+.aif-wrap {
+	max-width: 1440px;
+}
+
+.aif-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 24px;
+	margin-top: 16px;
+}
+
+@media (max-width: 960px) {
+	.aif-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.aif-panel {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 6px;
+	padding: 20px 24px;
+	box-shadow: 0 1px 3px rgba(0,0,0,.04);
+}
+
+.aif-row {
+	margin: 12px 0;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.aif-row label {
+	min-width: 90px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.aif-row select {
+	flex: 1;
+	max-width: 380px;
+}
+
+.aif-actions {
+	display: flex;
+	gap: 8px;
+	margin: 16px 0 8px;
+	align-items: center;
+}
+
+.aif-stats {
+	margin-left: auto;
+	font-size: 12px;
+	color: #787c82;
+	font-variant-numeric: tabular-nums;
+}
+
+/* ================================================================ */
+/*  Textareas                                                       */
+/* ================================================================ */
+#aif-input,
+#aif-output {
+	width: 100%;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	font-size: 13px;
+	line-height: 1.55;
+	resize: vertical;
+	border-radius: 4px;
+}
+
+#aif-input {
+	border: 2px dashed #c3c4c7;
+	transition: border-color 0.2s, background-color 0.2s;
+	padding: 12px;
+}
+
+#aif-input:focus {
+	border-color: #2271b1;
+	border-style: solid;
+	outline: none;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+
+#aif-input.aif-dragover {
+	border-color: #2271b1;
+	background: #f0f6fc;
+}
+
+#aif-output {
+	background: #f9f9f9;
+	padding: 12px;
+}
+
+/* ================================================================ */
+/*  Preview                                                         */
+/* ================================================================ */
+.aif-preview {
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	padding: 24px 28px;
+	background: #fff;
+	min-height: 140px;
+	overflow-y: auto;
+	max-height: 520px;
+	transition: opacity 0.2s;
+}
+
+.aif-preview.aif-loading {
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+.aif-preview:empty::before {
+	content: "Le resultat s'affichera ici.\ATip : Ctrl+Entree pour lancer le formatage.";
+	white-space: pre-line;
+	color: #999;
+	font-style: italic;
+	font-size: 13px;
+}
+
+/* ================================================================ */
+/*  Spinner                                                         */
+/* ================================================================ */
+.aif-spinner {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	border: 2px solid rgba(255,255,255,.3);
+	border-top-color: #fff;
+	border-radius: 50%;
+	animation: aif-spin 0.6s linear infinite;
+	vertical-align: middle;
+	margin-right: 6px;
+}
+
+@keyframes aif-spin {
+	to { transform: rotate(360deg); }
+}
+
+/* ================================================================ */
+/*  Toast notifications                                             */
+/* ================================================================ */
+.aif-toast {
+	position: fixed;
+	bottom: 24px;
+	right: 24px;
+	padding: 12px 20px;
+	border-radius: 6px;
+	font-size: 13px;
+	font-weight: 500;
+	color: #fff;
+	z-index: 100000;
+	transform: translateY(20px);
+	opacity: 0;
+	transition: transform 0.3s ease, opacity 0.3s ease;
+	max-width: 420px;
+	box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+.aif-toast-visible {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.aif-toast-success {
+	background: #00a32a;
+}
+
+.aif-toast-error {
+	background: #d63638;
+}
+
+/* ================================================================ */
+/*  CSS Presets (preview)                                            */
+/* ================================================================ */
+
+/* Clean */
+.aif-css-clean {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	font-size: 15px;
+	line-height: 1.6;
+	color: #1d2327;
+}
+
+/* SansDoute */
+.aif-css-sansdoute {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 16.5px;
+	line-height: 1.78;
+	color: #1a1a1a;
+	letter-spacing: 0.008em;
+}
+
+.aif-css-sansdoute h2,
+.aif-css-sansdoute h3,
+.aif-css-sansdoute h4 {
+	font-family: system-ui, -apple-system, sans-serif;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.aif-css-sansdoute blockquote {
+	border-left: 3px solid #1a1a1a;
+	padding-left: 1.2em;
+	margin-left: 0;
+	font-style: italic;
+	color: #444;
+}
+
+.aif-css-sansdoute ul,
+.aif-css-sansdoute ol {
+	border-left: 3px solid #e0e0e0;
+	padding-left: 1.2em;
+}
+
+/* Doc technique */
+.aif-css-tech {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+	font-size: 13.5px;
+	line-height: 1.65;
+	color: #1a1a2e;
+}
+
+.aif-css-tech h2,
+.aif-css-tech h3,
+.aif-css-tech h4 {
+	border-bottom: 1px solid #e2e4e7;
+	padding-bottom: 0.3em;
+	margin-bottom: 0.6em;
+}
+
+.aif-css-tech code {
+	background: #f0f0f1;
+	padding: 0.15em 0.4em;
+	border-radius: 3px;
+	font-size: 0.92em;
+}
+
+.aif-css-tech blockquote {
+	background: #f8f9fa;
+	border-left: 4px solid #2271b1;
+	padding: 0.8em 1em;
+	margin: 0.8em 0;
+	border-radius: 0 4px 4px 0;
+}
+
+/* Apple clean */
+.aif-css-apple {
+	font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 17px;
+	line-height: 1.52941;
+	color: #1d1d1f;
+	letter-spacing: -0.01em;
+	-webkit-font-smoothing: antialiased;
+}
+
+.aif-css-apple h2,
+.aif-css-apple h3,
+.aif-css-apple h4 {
+	font-weight: 600;
+	letter-spacing: -0.025em;
+}
+
+.aif-css-apple p {
+	margin-bottom: 1.2em;
+}
+
+.aif-css-apple ul,
+.aif-css-apple ol {
+	padding-left: 1.3em;
+}
+
+.aif-css-apple li {
+	margin-bottom: 0.4em;
+}
+
+.aif-css-apple blockquote {
+	border-left: 3px solid #d2d2d7;
+	padding-left: 1em;
+	margin-left: 0;
+	color: #6e6e73;
+}
+
+/* ================================================================ */
+/*  Shared preview styles                                           */
+/* ================================================================ */
+.aif-preview h2,
+.aif-preview h3,
+.aif-preview h4 {
+	margin-top: 1.3em;
+	margin-bottom: 0.4em;
+}
+
+.aif-preview h2:first-child,
+.aif-preview h3:first-child,
+.aif-preview h4:first-child {
+	margin-top: 0;
+}
+
+.aif-preview h2 { font-size: 1.5em; }
+.aif-preview h3 { font-size: 1.25em; }
+.aif-preview h4 { font-size: 1.1em; }
+
+.aif-preview p {
+	margin: 0 0 0.8em;
+}
+
+.aif-preview ul,
+.aif-preview ol {
+	padding-left: 1.4em;
+	margin: 0 0 0.8em;
+}
+
+.aif-preview li {
+	margin-bottom: 0.3em;
+}
+
+.aif-preview strong {
+	font-weight: 700;
+}
+
+.aif-preview em {
+	font-style: italic;
+}
+
+.aif-preview a {
+	color: #2271b1;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.aif-preview a:hover {
+	color: #135e96;
+}
+
+.aif-preview blockquote {
+	margin: 0.8em 0;
+}
+
+.aif-preview hr {
+	border: none;
+	border-top: 1px solid #ddd;
+	margin: 1.5em 0;
+}
+
+.aif-preview code {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	font-size: 0.9em;
+}
+
+/* ================================================================ */
+/*  Signature footer                                                */
+/* ================================================================ */
+.aif-footer {
+	margin-top: 24px;
+	text-align: center;
+	font-size: 11px;
+	color: #999;
+}
+
+.aif-footer a {
+	color: #787c82;
+	text-decoration: none;
+}
+
+.aif-footer a:hover {
+	color: #2271b1;
+}
