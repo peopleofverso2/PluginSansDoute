@@ -2,8 +2,8 @@
 /**
  * Plugin Name: AI Formatter (Clean Copy)
  * Plugin URI:  https://github.com/peopleofverso2/PluginSansDoute
- * Description: Colle/importe un texte, nettoie les tics LLM, corrige orthographe + typographie FR, et applique un style CSS preset. Respecte la voix des auteurs.
- * Version:     1.1.0
+ * Description: Colle/importe un texte, nettoie les tics LLM, corrige orthographe + typographie FR, et applique un style CSS preset. Respecte la voix des auteurs. Inclut SansDoute Influence pour le marketing d'influence par le contenu.
+ * Version:     1.2.0
  * Author:      Peopleofverso
  * Author URI:  https://github.com/peopleofverso2
  * Text Domain: ai-formatter
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AIF_VERSION', '1.1.0' );
+define( 'AIF_VERSION', '1.2.0' );
 define( 'AIF_PATH', plugin_dir_path( __FILE__ ) );
 define( 'AIF_URL', plugin_dir_url( __FILE__ ) );
 
@@ -31,6 +31,9 @@ require_once AIF_PATH . 'includes/translation.php';
 require_once AIF_PATH . 'includes/gutenberg.php';
 require_once AIF_PATH . 'includes/frontend.php';
 require_once AIF_PATH . 'includes/tone-detector.php';
+
+/* SansDoute Influence — marketing d'influence par le contenu */
+require_once AIF_PATH . 'includes/influence/loader.php';
 
 /* ================================================================ */
 /*  Admin page : Outils -> AI Formatter                             */

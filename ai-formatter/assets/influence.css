@@ -1,0 +1,620 @@
+/**
+ * SansDoute Influence — Admin Styles
+ *
+ * Design system: clean, functional, no bullshit.
+ * Colors: dark navy + accent green for scores.
+ */
+
+/* ================================================================ */
+/*  Layout                                                           */
+/* ================================================================ */
+
+.aif-inf-wrap {
+	max-width: 1400px;
+	margin: 20px auto;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.aif-inf-wrap h1 {
+	font-size: 28px;
+	font-weight: 700;
+	color: #1a1a2e;
+	margin-bottom: 4px;
+}
+
+.aif-inf-version {
+	font-size: 13px;
+	font-weight: 400;
+	color: #888;
+	vertical-align: middle;
+}
+
+.aif-inf-tagline {
+	color: #666;
+	font-size: 14px;
+	margin-top: 0;
+	margin-bottom: 24px;
+}
+
+.aif-inf-actions-bar {
+	margin-bottom: 24px;
+}
+
+/* ================================================================ */
+/*  Stats cards                                                      */
+/* ================================================================ */
+
+.aif-inf-stats-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 16px;
+	margin-bottom: 32px;
+}
+
+.aif-inf-stat-card {
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 20px;
+	text-align: center;
+}
+
+.aif-inf-stat-number {
+	display: block;
+	font-size: 32px;
+	font-weight: 700;
+	color: #1a1a2e;
+	line-height: 1.2;
+}
+
+.aif-inf-stat-label {
+	display: block;
+	font-size: 13px;
+	color: #888;
+	margin-top: 4px;
+}
+
+/* ================================================================ */
+/*  Tables                                                           */
+/* ================================================================ */
+
+.aif-inf-section {
+	margin-bottom: 32px;
+}
+
+.aif-inf-section h2 {
+	font-size: 18px;
+	font-weight: 600;
+	color: #1a1a2e;
+	margin-bottom: 12px;
+}
+
+.aif-inf-table {
+	border-collapse: collapse;
+	width: 100%;
+	background: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.aif-inf-table thead th {
+	background: #f7f7f8;
+	font-weight: 600;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: #666;
+	padding: 10px 14px;
+	text-align: left;
+	border-bottom: 2px solid #e0e0e0;
+}
+
+.aif-inf-table tbody td {
+	padding: 12px 14px;
+	border-bottom: 1px solid #f0f0f0;
+	font-size: 14px;
+	color: #333;
+	vertical-align: middle;
+}
+
+.aif-inf-table tbody tr:hover {
+	background: #fafbfc;
+}
+
+.aif-inf-loading {
+	text-align: center;
+	color: #999;
+	padding: 24px !important;
+}
+
+/* ================================================================ */
+/*  Status badges                                                    */
+/* ================================================================ */
+
+.aif-inf-status-badge {
+	display: inline-block;
+	padding: 3px 10px;
+	border-radius: 12px;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.3px;
+}
+
+.aif-inf-status-badge[data-status="draft"],
+.aif-inf-status-badge[data-status="brouillon"] {
+	background: #f0f0f0;
+	color: #666;
+}
+
+.aif-inf-status-badge[data-status="submitted"],
+.aif-inf-status-badge[data-status="soumis"] {
+	background: #fff3cd;
+	color: #856404;
+}
+
+.aif-inf-status-badge[data-status="revision"] {
+	background: #fde8e8;
+	color: #c53030;
+}
+
+.aif-inf-status-badge[data-status="approved"],
+.aif-inf-status-badge[data-status="approuve"] {
+	background: #d4edda;
+	color: #155724;
+}
+
+.aif-inf-status-badge[data-status="published"],
+.aif-inf-status-badge[data-status="publie"] {
+	background: #1a1a2e;
+	color: #fff;
+}
+
+.aif-inf-status-badge[data-status="publish"] {
+	background: #d4edda;
+	color: #155724;
+}
+
+.aif-inf-status-badge[data-status="closed"] {
+	background: #f0f0f0;
+	color: #999;
+}
+
+/* ================================================================ */
+/*  Score displays                                                   */
+/* ================================================================ */
+
+.aif-inf-score-inline {
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.aif-inf-score-inline[data-level="high"] {
+	color: #27ae60;
+}
+
+.aif-inf-score-inline[data-level="medium"] {
+	color: #f39c12;
+}
+
+.aif-inf-score-inline[data-level="low"] {
+	color: #e74c3c;
+}
+
+.aif-inf-score-ring {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	border: 4px solid #e0e0e0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 12px auto;
+	transition: border-color 0.3s;
+}
+
+.aif-inf-score-ring[data-level="high"] {
+	border-color: #27ae60;
+}
+
+.aif-inf-score-ring[data-level="medium"] {
+	border-color: #f39c12;
+}
+
+.aif-inf-score-ring[data-level="low"] {
+	border-color: #e74c3c;
+}
+
+.aif-inf-score-value {
+	font-size: 24px;
+	font-weight: 700;
+	color: #1a1a2e;
+}
+
+.aif-inf-score-details {
+	font-size: 13px;
+	color: #555;
+}
+
+.aif-inf-score-details ul {
+	margin: 8px 0;
+	padding-left: 18px;
+}
+
+.aif-inf-score-details li {
+	margin-bottom: 4px;
+}
+
+.aif-inf-score-details .check-pass {
+	color: #27ae60;
+}
+
+.aif-inf-score-details .check-fail {
+	color: #e74c3c;
+}
+
+/* ================================================================ */
+/*  Brief editor form                                                */
+/* ================================================================ */
+
+.aif-inf-form-grid {
+	display: grid;
+	grid-template-columns: 1fr 360px;
+	gap: 24px;
+	align-items: start;
+}
+
+.aif-inf-form-main {
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 24px;
+}
+
+.aif-inf-form-sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.aif-inf-sidebar-card {
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 20px;
+}
+
+.aif-inf-sidebar-card h3 {
+	font-size: 14px;
+	font-weight: 600;
+	color: #1a1a2e;
+	margin: 0 0 12px 0;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.aif-inf-field {
+	margin-bottom: 16px;
+}
+
+.aif-inf-field:last-child {
+	margin-bottom: 0;
+}
+
+.aif-inf-field label {
+	display: block;
+	font-size: 13px;
+	font-weight: 600;
+	color: #333;
+	margin-bottom: 4px;
+}
+
+.aif-inf-field input[type="text"],
+.aif-inf-field input[type="date"],
+.aif-inf-field textarea,
+.aif-inf-field select {
+	width: 100%;
+	padding: 8px 12px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 14px;
+	font-family: inherit;
+	box-sizing: border-box;
+	transition: border-color 0.2s;
+}
+
+.aif-inf-field input:focus,
+.aif-inf-field textarea:focus,
+.aif-inf-field select:focus {
+	border-color: #1a1a2e;
+	outline: none;
+	box-shadow: 0 0 0 2px rgba(26, 26, 46, 0.1);
+}
+
+.aif-inf-field .description {
+	font-size: 12px;
+	color: #888;
+	margin-top: 4px;
+}
+
+.aif-inf-brief-summary {
+	font-size: 13px;
+	color: #555;
+}
+
+.aif-inf-muted {
+	color: #999;
+	font-style: italic;
+}
+
+/* ================================================================ */
+/*  Workspace                                                        */
+/* ================================================================ */
+
+.aif-inf-workspace-grid {
+	display: grid;
+	grid-template-columns: 1fr 380px;
+	gap: 24px;
+	align-items: start;
+}
+
+.aif-inf-workspace-editor {
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 24px;
+}
+
+.aif-inf-workspace-editor textarea {
+	width: 100%;
+	padding: 16px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 15px;
+	font-family: Georgia, "Times New Roman", serif;
+	line-height: 1.7;
+	resize: vertical;
+	box-sizing: border-box;
+}
+
+.aif-inf-workspace-editor textarea:focus {
+	border-color: #1a1a2e;
+	outline: none;
+	box-shadow: 0 0 0 2px rgba(26, 26, 46, 0.1);
+}
+
+.aif-inf-workspace-sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	position: sticky;
+	top: 40px;
+}
+
+.aif-inf-ws-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 16px;
+}
+
+.aif-inf-btn-submit {
+	background: #27ae60 !important;
+	color: #fff !important;
+	border-color: #219a52 !important;
+}
+
+.aif-inf-btn-submit:hover {
+	background: #219a52 !important;
+}
+
+.aif-inf-btn-submit:disabled {
+	background: #ccc !important;
+	border-color: #bbb !important;
+	color: #999 !important;
+}
+
+/* ================================================================ */
+/*  Brief display in workspace                                       */
+/* ================================================================ */
+
+.aif-inf-brief-display {
+	font-size: 13px;
+}
+
+.aif-inf-brief-display dt {
+	font-weight: 600;
+	color: #333;
+	margin-top: 8px;
+}
+
+.aif-inf-brief-display dd {
+	margin-left: 0;
+	color: #555;
+	margin-bottom: 4px;
+}
+
+.aif-inf-brief-display .tag {
+	display: inline-block;
+	background: #f0f0f0;
+	padding: 2px 8px;
+	border-radius: 3px;
+	font-size: 12px;
+	margin-right: 4px;
+	margin-bottom: 4px;
+}
+
+.aif-inf-brief-display .tag-forbidden {
+	background: #fde8e8;
+	color: #c53030;
+}
+
+.aif-inf-brief-display .tag-required {
+	background: #d4edda;
+	color: #155724;
+}
+
+/* ================================================================ */
+/*  Compliance details                                               */
+/* ================================================================ */
+
+.aif-inf-check-list {
+	list-style: none;
+	padding: 0;
+	margin: 8px 0 0 0;
+}
+
+.aif-inf-check-list li {
+	padding: 4px 0;
+	font-size: 12px;
+	display: flex;
+	align-items: flex-start;
+	gap: 6px;
+}
+
+.aif-inf-check-icon {
+	flex-shrink: 0;
+	width: 16px;
+	text-align: center;
+	font-weight: 700;
+}
+
+.aif-inf-check-icon.pass {
+	color: #27ae60;
+}
+
+.aif-inf-check-icon.fail {
+	color: #e74c3c;
+}
+
+/* ================================================================ */
+/*  Blocker / warning messages                                       */
+/* ================================================================ */
+
+.aif-inf-blockers {
+	background: #fde8e8;
+	border: 1px solid #f5c6c6;
+	border-radius: 4px;
+	padding: 10px 14px;
+	margin-top: 8px;
+}
+
+.aif-inf-blockers h4 {
+	margin: 0 0 6px 0;
+	font-size: 12px;
+	color: #c53030;
+	text-transform: uppercase;
+}
+
+.aif-inf-blockers ul {
+	margin: 0;
+	padding-left: 16px;
+	font-size: 12px;
+	color: #c53030;
+}
+
+.aif-inf-warnings {
+	background: #fff8e1;
+	border: 1px solid #ffe082;
+	border-radius: 4px;
+	padding: 10px 14px;
+	margin-top: 8px;
+}
+
+.aif-inf-warnings h4 {
+	margin: 0 0 6px 0;
+	font-size: 12px;
+	color: #856404;
+	text-transform: uppercase;
+}
+
+.aif-inf-warnings ul {
+	margin: 0;
+	padding-left: 16px;
+	font-size: 12px;
+	color: #856404;
+}
+
+/* ================================================================ */
+/*  Suggestions                                                      */
+/* ================================================================ */
+
+.aif-inf-suggestions {
+	margin-top: 8px;
+}
+
+.aif-inf-suggestions li {
+	font-size: 12px;
+	color: #555;
+	padding: 3px 0;
+}
+
+/* ================================================================ */
+/*  Action buttons in tables                                         */
+/* ================================================================ */
+
+.aif-inf-table .button {
+	font-size: 12px;
+	padding: 2px 10px;
+	height: auto;
+	line-height: 1.6;
+}
+
+/* ================================================================ */
+/*  Toast notifications                                              */
+/* ================================================================ */
+
+.aif-inf-toast {
+	position: fixed;
+	bottom: 24px;
+	right: 24px;
+	background: #1a1a2e;
+	color: #fff;
+	padding: 12px 20px;
+	border-radius: 6px;
+	font-size: 14px;
+	z-index: 99999;
+	opacity: 0;
+	transform: translateY(10px);
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.aif-inf-toast.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.aif-inf-toast.error {
+	background: #e74c3c;
+}
+
+/* ================================================================ */
+/*  Footer                                                           */
+/* ================================================================ */
+
+.aif-inf-footer {
+	margin-top: 40px;
+	padding-top: 16px;
+	border-top: 1px solid #e0e0e0;
+	font-size: 12px;
+	color: #999;
+}
+
+/* ================================================================ */
+/*  Responsive                                                       */
+/* ================================================================ */
+
+@media (max-width: 1200px) {
+	.aif-inf-stats-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.aif-inf-form-grid,
+	.aif-inf-workspace-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.aif-inf-workspace-sidebar {
+		position: static;
+	}
+}
